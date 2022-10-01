@@ -23,7 +23,11 @@ public class EmployeeController {
     }
 
     @PostMapping("/list")
-    public String employeeList(@ModelAttribute("employee") Employee employee){
+    public String employeeList(@ModelAttribute("employee") Employee employee, Model model){
+
+        DataGenerator.saveEmployee(employee);
+
+        model.addAttribute("employees", DataGenerator.readAllEmployees());
 
         return "employee/employee-list";
     }
