@@ -23,21 +23,23 @@ public class EmployeeController {
         model.addAttribute("states", DataGenerator.getAllStates());
 
         return "employee/employee-create";
+
     }
-
     @PostMapping("/list")
-    public String employeeList(@Valid @ModelAttribute("employee") Employee employee, BindingResult bindingResult, Model model){
+    public String employeeList(@Valid @ModelAttribute("employee") Employee employee, BindingResult bindingResult, Model model) {
 
-        if (bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
 
             model.addAttribute("states", DataGenerator.getAllStates());
 
             return "employee/employee-create";
         }
+
         DataGenerator.saveEmployee(employee);
 
         model.addAttribute("employees", DataGenerator.readAllEmployees());
 
         return "employee/employee-list";
     }
+
 }
