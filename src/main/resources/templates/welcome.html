@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Welcome</title>
 </head>
 <body>
   <h2> Welcome to the employee register system !</h2>
+  <div class="card-body">
+      <form th:action="@{/login}">
+          <button type="submit" class="btn btn-danger">User Login</button>
+      </form>
+
+  </div>
+
 </body>
 </html>
